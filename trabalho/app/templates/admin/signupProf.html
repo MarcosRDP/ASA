@@ -1,0 +1,34 @@
+{% extends 'admin/base.html'%}
+
+{% block content %}
+<title>{% block title %} Cadastro Professor{% endblock %}</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+
+
+<div class="container">
+      <div style=" width: 50%; margin-left: 300px; margin-top: 50px;">
+          <h2>Cadastro Professor</h2>
+          <form action="/signupProf" method="POST">
+              {{ form.csrf_token }}
+              <div class="form-group">
+                  <br>
+                  {{ form.username(class="form-control", placeholder="Nome") }}
+              </div>
+            
+              <div class="form-group">
+                  <br>
+                  {{ form.password(class="form-control", placeholder="Senha") }}
+              </div>
+            
+              <div class="form-group">
+                  <br>
+                  {{ form.afiliacao(class="form-control", placeholder="Afiliação") }}
+              </div>
+            
+              <button type="submit" class="btn btn-primary">Cadastrar</button>
+
+          </form>
+    </div>
+</div>
+
+{% endblock %}
